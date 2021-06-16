@@ -1,33 +1,82 @@
-
 /**
- * Escreva a descrição da classe Auxiliar aqui.
+ * A classe Auxiliar possui 02 subprogramas. O primeiro distribui de forma ordenada os
+ * pontos que podem ser escolhidos pelos jogadores dentro do tabuleiro.
+ * O segundo defina as bordas do tabuleiro, através de uma matriz quadrada.
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author Igor Ivanoff(igorlbivanoff@gmail.com) 
+ * @version 1.4(2021-06-16)
  */
-public class Auxiliar
+class Auxiliar
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
     /**
-     * COnstrutor para objetos da classe Auxiliar
+     * Averigua se o jogador marcou um ponto já existente no tabuleiro
+     * E, caso positivo, ordena uma nova jogada.
      */
-    public Auxiliar()
+    public static String[][] wrong()
     {
-        // inicializa variáveis de instância
-        x = 0;
+        boolean wrong;
+        wrong = false;
+        while (false)
+        {
+            if ([row][column].equals = player)
+            {
+            System.out.println("Jogada incorreta. Jogue novamente!");
+            }
+        }
+        return done;
+    }
+    
+    /**
+     * Quando o jogador forma um quadrado, computa um ponto.
+     * @return Um ponto.
+     */
+    public static String umponto(int irow, int jcolumn)
+    {
+        int irow;
+        int jcolumn;
+        int umponto;
+        for (irow = [row + 1][column]; jcolumn = [row][column + 1]; um ponto = umponto + 1)
+        {
+            System.out.print("Formou um quadrado. Um ponto");
+        }
     }
 
     /**
-     * Exemplo de método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   exemplo de um parâmetro de método
-     * @return     a soma de x com y 
+     * Cria os pontos ordenados no tabuleiro.
+     * @param i e j definem a ordenação dos pontos que podem ser marcados pelos jogadores no tabuleiro.
+     * @return matriz quadrada.
      */
-    public int sampleMethod(int y)
+    public static String[][] init()
     {
-        // ponha seu código aqui
-        return x + y;
+        int i;
+        int j;
+        String[][] board = new String[6][6];
+        for(i = 0; i < 6 ; i = i + 1)
+        {
+            for(j = 0; j < 6; j = j + 1)
+            {
+                board[i][j] = " o ";
+            }
+        }
+        return board;
+    }
+
+    /**
+     * Cria uma matriz quadrada com as bordas do tabuleiro
+     * @param i e j para definir as divisórias das seis linhas do tabuleiro.
+     */
+    public static void dump(String[][] board)
+    {
+        int i;
+        int j;
+        for(i = 0; i < 6 ; i = i + 1)
+        {
+            System.out.print("|");
+            for(j = 0; j < 6; j = j + 1)
+            {
+                System.out.print(board[i][j]);
+            }
+            System.out.println("|");
+        }
     }
 }
