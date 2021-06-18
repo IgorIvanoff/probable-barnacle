@@ -9,39 +9,6 @@
 class Auxiliar
 {
     /**
-     * Averigua se o jogador marcou um ponto já existente no tabuleiro
-     * E, caso positivo, ordena uma nova jogada.
-     */
-    public static String[][] wrong()
-    {
-        boolean wrong;
-        wrong = false;
-        while (false)
-        {
-            if ([row][column].equals = player)
-            {
-            System.out.println("Jogada incorreta. Jogue novamente!");
-            }
-        }
-        return done;
-    }
-    
-    /**
-     * Quando o jogador forma um quadrado, computa um ponto.
-     * @return Um ponto.
-     */
-    public static String umponto(int irow, int jcolumn)
-    {
-        int irow;
-        int jcolumn;
-        int umponto;
-        for (irow = [row + 1][column]; jcolumn = [row][column + 1]; um ponto = umponto + 1)
-        {
-            System.out.print("Formou um quadrado. Um ponto");
-        }
-    }
-
-    /**
      * Cria os pontos ordenados no tabuleiro.
      * @param i e j definem a ordenação dos pontos que podem ser marcados pelos jogadores no tabuleiro.
      * @return matriz quadrada.
@@ -55,7 +22,7 @@ class Auxiliar
         {
             for(j = 0; j < 6; j = j + 1)
             {
-                board[i][j] = " o ";
+                board[i][j] = " . ";
             }
         }
         return board;
@@ -69,9 +36,10 @@ class Auxiliar
     {
         int i;
         int j;
+        System.out.println("       colunas de 0 a 5");
         for(i = 0; i < 6 ; i = i + 1)
         {
-            System.out.print("|");
+            System.out.print("linha |");
             for(j = 0; j < 6; j = j + 1)
             {
                 System.out.print(board[i][j]);
@@ -79,4 +47,5 @@ class Auxiliar
             System.out.println("|");
         }
     }
+    
 }

@@ -28,7 +28,8 @@ public class MainApp
     public static void main(String[] args) throws IOException
     {
         String[][] board;
-        String player;
+        String player1;
+        String player2;
         boolean done;
         Auxiliar aux = new Auxiliar();
         int row;
@@ -36,44 +37,93 @@ public class MainApp
         Scanner teclado;
         teclado = new Scanner(System.in);
         board = Auxiliar.init();
-        player = " j1 ";
+        player1 = " j1 ";
+        player2 = " j2 ";
         done = false;
+
         System.out.print("Jogo do Pontinho!\n");
         while (!done)
         {
             Auxiliar.dump(board);
-            System.out.printf("Jogada de: %s\n", player);
+            System.out.println("Jogada do player1");
             System.out.print("Informe o valor da linha (0,1,2,3,4,5)");
             row = teclado.nextInt();
             while (!(row >= 0 && row <= 6))
             {
-                //garanti de valor válido
-                System.out.print("\tValor Inválido. Digite novamente");
+                System.out.print("\tValor Inválido. Digite novamente o valor da linha");
                 row = teclado.nextInt();
             }
             System.out.print("Informe o valor da coluna (0,1,2,3,4,5)");
             column = teclado.nextInt();
             while (!(column >= 0 && column <= 6))
             {
-                //garanti de valor válido
-                System.out.print("\tValor Inválido. Digite novamente");
+                System.out.print("\tValor Inválido. Digite novamente o valor da coluna");
                 column = teclado.nextInt();
             }
-            wrong = Auxiliar.wrong();
             if (board[row][column].equals("   "))
             {
-                board[row][column] = player;
+                board[row][column] = player1;
+                player1 = "j1";
             }
-            board[row][column] = player;
-            if (player.equals(" j1 "))
+            while (board[row][column].equals("j2"))
             {
-                player = " j2 ";
+                System.out.println("Ponto já marcado pelo outro jogador.");
+                System.out.print("Informe outro valor para a linha (0,1,2,3,4,5)");
+                row = teclado.nextInt();
+                while (!(row >= 0 && row <= 6))
+                {
+                    System.out.print("\tValor Inválido. Digite novamente o valor da linha");
+                    row = teclado.nextInt();
+                }
+                System.out.print("Informe outro valor para a coluna (0,1,2,3,4,5)");
+                column = teclado.nextInt();
+                while (!(column >= 0 && column <= 6))
+                {
+                    System.out.print("\tValor Inválido. Digite novamente outro valor para a coluna");
+                    column = teclado.nextInt();
+                }
             }
-            else
+            board[row][column] = player1;
+            Auxiliar.dump(board);
+            System.out.println("Jogada do player2");
+            System.out.print("Informe o valor da linha (0,1,2,3,4,5)");
+            row = teclado.nextInt();
+             while (!(row >= 0 && row <= 6))
             {
-                player = " j1 ";
+                System.out.print("\tValor Inválido. Digite novamente o valor da linha");
+                row = teclado.nextInt();
             }
-            umponto = Auxiliar.umponto;
+            System.out.print("Informe o valor da coluna (0,1,2,3,4,5)");
+            column = teclado.nextInt();
+            while (!(column >= 0 && column <= 6))
+            {
+                System.out.print("\tValor Inválido. Digite novamente o valor da coluna");
+                column = teclado.nextInt();
+            }
+            if (board[row][column].equals("   "))
+            {
+                board[row][column] = player2;
+                player2 = "j2";
+            }
+            while (board[row][column].equals("j1"))
+            {
+                System.out.println("Ponto já marcado pelo outro jogador. Digite Novamente");
+                System.out.print("Informe o novo valor da linha (0,1,2,3,4,5)");
+                row = teclado.nextInt();
+                while (!(row >= 0 && row <= 6))
+                {
+                    System.out.print("\tValor Inválido. Digite novamente o valor da linha");
+                    row = teclado.nextInt();
+                }
+                System.out.print("Informe outro valor para a coluna (0,1,2,3,4,5)");
+                column = teclado.nextInt();
+                while (!(column >= 0 && column <= 6))
+                {
+                    System.out.print("\tValor Inválido. Digite novamente o valor da coluna");
+                    column = teclado.nextInt();
+                }
+            }
+            board[row][column] = player2;
         }
         teclado.close();
         System.out.print("**Fim de jogo**\n");
